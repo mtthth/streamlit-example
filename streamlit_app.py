@@ -43,7 +43,6 @@ with st.echo(code_location='below'):
         .encode(x='x:Q', y='y:Q'))
 
     
-    %matplotlib notebook
     import seaborn as sns
     import pandas as pd
     
