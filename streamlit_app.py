@@ -16,6 +16,11 @@ In the meantime, below is an example of what you can do with just a few lines of
 """
 
 
+
+
+
+
+
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
     num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
@@ -36,3 +41,21 @@ with st.echo(code_location='below'):
     st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q'))
+
+    
+    %matplotlib notebook
+    import seaborn as sns
+    import pandas as pd
+    
+    from matplotlib import pyplot as plt
+    temperature = pd.read_csv(r"X:\bw\environnement\2023_06_températures.txt", sep='\t', names=['MJD','T0', 'T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9'])
+    tilt =  pd.read_csv(r"X:\bw\environnement\2023_06_leica_nivel_20.txt", sep='\t', names=['MJD','X', 'Y', 'T', 'void'])   
+    # Apply the default theme
+    sns.set_theme()
+    
+    
+    # Create a visualization
+    sns.lineplot(
+        data=temperature, x='MJD', y='T6')
+    sns.lineplot(
+        data=temperature, x='MJD', y='T8')
